@@ -1,0 +1,27 @@
+/*
+ Positioning
+ */
+canvas {
+	position:fixed;
+	left: 0;
+	top: 0;
+}
+
+#LeftSidePanel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#Header {
+	position:fixed;
+	z-index:3;
+}
+
+#Hotbox {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index:2;
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Playhouse</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link type="image/png" rel="icon"                 href="../../Resources/favicon.png" />
+	<link type="text/css"  rel="stylesheet"           href="../../Resources/Fonts/Vegur/Vegur.css" />
+	<link type="text/css"  rel="stylesheet"           href="../../Stylesheets/Structure/Foundation.css" />
+	<link type="text/css"  rel="stylesheet"           href="../../Stylesheets/Structure/AppStructure.css" />
+	<link type="text/css"  rel="stylesheet"           href="../../Stylesheets/Structure/AppPosition.css" />
+	<link type="text/css"  rel="stylesheet"           href="../../Stylesheets/Structure/AppFonts.css" />
+	<link type="text/css"  rel="stylesheet"           href="../../Stylesheets/Structure/WidgetStructure.css" />
+	<link type="text/css"  rel="stylesheet"           href="../../Stylesheets/Style/AppStyle.css" />
+	<link type="text/css"  rel="alternate stylesheet" href="../../Stylesheets/Style/WhiteBase.css"    title="WhiteBase" />
+	<link type="text/css"  rel="alternate stylesheet" href="../../Stylesheets/Style/GreenAccent.css"  title="GreenAccent" />
+	<link type="text/css"  rel="alternate stylesheet" href="../../Stylesheets/Style/BlackBase.css"    title="BlackBase" />
+	<link type="text/css"  rel="alternate stylesheet" href="../../Stylesheets/Style/BlueAccent.css"   title="BlueAccent" />
+	<link type="text/css"  rel="alternate stylesheet" href="../../Stylesheets/Style/PinkAccent.css"   title="PinkAccent" />
+	<link type="text/css"  rel="alternate stylesheet" href="../../Stylesheets/Style/OrangeAccent.css" title="OrangeAccent" />
+	<script type="text/javascript" src="../../Frameworks/mootools/mootools-core-1.4.2-full-compat.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/mootools/mootools-more-1.4.0.1.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/knockout/knockout-2.0.0.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/glMatrix/gl-matrix-min.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/webgl-utils/webgl-utils.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/assert/assert.js" ></script>
+	<script type="text/javascript" src="../../Library/Animator/Animator.js" ></script>
+	<script type="text/javascript" src="../../Library/Animator/Easing.js" ></script>
+	<script type="text/javascript" src="../../Library/Animator/InterpolatedAnimator.js" ></script>
+	<script type="text/javascript" src="../../Library/Animator/ClothAnimator.js" ></script>
+	<script type="text/javascript" src="../../Library/Buffer/Buffer.js" ></script>
+	<script type="text/javascript" src="../../Library/Camera/Trackable.js" ></script>
+	<script type="text/javascript" src="../../Library/Camera/Camera.js" ></script>
+	<script type="text/javascript" src="../../Library/Geometry/Geometry.js" ></script>
+	<script type="text/javascript" src="../../Library/Manipulator/Manipulator.js" ></script>
+	<script type="text/javascript" src="../../Library/Manipulator/MoveManipulator.js" ></script>
+	<script type="text/javascript" src="../../Library/Shapes/Shapes.js" ></script>
+	<script type="text/javascript" src="../../Library/Shapes/Group.js" ></script>
+	<script type="text/javascript" src="../../Library/Scene/Scene.js" ></script>
+	<script type="text/javascript" src="../../Library/Scene/GeometryScene.js" ></script>
+	<script type="text/javascript" src="../../Library/Shader/Shader.js" ></script>
+	<script type="text/javascript" src="../../Library/Shader/ShaderCode.js" ></script>
+	<script type="text/javascript" src="../../Library/Library.js" ></script>
+	<script type="text/javascript" src="../../Library/ModeSwitcher/ModeSwitcher.js" ></script>	
+	<script type="text/javascript" src="../../Library/UI/UILibrary.js" ></script>
+	<script type="text/javascript" src="../../Library/Utilities/Colors.js" ></script>
+	<script type="text/javascript" src="../../Library/Utilities/Utilities.js" ></script>
+	<script type="text/javascript" src="../../Resources/Textures/TextureCatalog.js" ></script>
+	<script type="text/javascript" src="../../Resources/Models/ModelCatalog.js" ></script>
+	<script type="text/javascript" src="Library/Model.js" ></script>
+	<script type="text/javascript" src="Library/Dialog.js" ></script>
+	<script type="text/javascript" src="Application.js" ></script>
+	<script type="text/javascript" src="Main.js" ></script>
+</head>
+<body onload="Main();">
+	<noscript>You'll need a browser that supports Javascript. Google Chrome is recommended!</noscript>
+
+	<div id="Header">
+		<h1><a data-bind="click: SwitchToDefaultPage">Playhouse</a></h1>
+	</div>
+
+	<div id="LeftSidePanel" class="SidePanel" data-bind="SlideInHorizontalOnVisible: $root.is_sidepanel_open" >
+		<div id="PageDisplay" class="Page">
+			<a class="TopLink" data-bind="visible: !IsOnDefaultPage(), click: SwitchToDefaultPage">Back to Home</a>
+			<span data-bind="template: {name: current_page().name, data: current_page, afterRender: function(){FadeInElement($('PageDisplay'))}}, attr: {id: current_page().name}"></span>
+		</div>
+	</div>
+
+	<canvas id="ApplicationCanvas" width="512" height="512"></canvas>
+
+	<script type="text/html" id="Home">
+		<ul data-bind="foreach: $root.pages">
+			<li><h1><a data-bind="click: function(){$root.SwitchPage($data)}, text: $data.name"></a></h1></li>
+		</ul>
+	</script>
+
+	<script type="text/html" id="DialogLink">
+		<label class="DialogLink">
+			<input type="checkbox" data-bind="checked: is_open"></input><span data-bind="text:name, css: {'DialogLinkOpen':is_open}"></span>
+		</label>
+	</script>
+
+	<script type="text/html" id="Stage">
+		<h1>Stage</h1>
+		<h2>Models</h2>
+		<span data-bind="template: {foreach: $root.models} ">
+			<span data-bind="template: {name: 'DialogLink', data: dialog}"></span>
+			<div class="Dialog" data-bind="attr: {id: id_name }, RevealOnVisible: dialog.is_open, style: {backgroundImage: dialog.bg() ? 'url(' + dialog.bg() + ')' : ''}">
+				<table border="0">
+					<tr data-bind="visible: can_show_data">
+						<th><label>Name</label></th>
+						<td colspan="100%"><input type="text" data-bind="value: name" /></td>
+					</tr>
+					<tr data-bind="visible: can_show_data">
+						<th><label>position <sub>xyz</sub></label></th>
+						<td><input type="text" data-bind="value: position_x" /></td>
+						<td><input type="text" data-bind="value: position_y" /></td>
+						<td><input type="text" data-bind="value: position_z" /></td>
+					</tr>
+					<tr data-bind="visible: can_show_data" >
+						<th><label>color <sub>rgba</sub></label></th>
+						<td><input type="text" data-bind="value: color_r" /></td>
+						<td><input type="text" data-bind="value: color_g" /></td>
+						<td><input type="text" data-bind="value: color_b" /></td>
+						<td><input type="text" data-bind="value: color_a" /></td>
+					</tr>
+					<tr data-bind="visible: can_show_data">
+						<th><label>rotation <sub>rad</sub></label></th>
+						<td><input type="text" data-bind="value: rotation" /></td>
+					</tr>
+					<tr data-bind="visible: can_show_data">
+						<th><label>rotation_axis <sub>xyz</sub></label></th>
+						<td><input type="text" data-bind="value: rotation_axis_x" /></td>
+						<td><input type="text" data-bind="value: rotation_axis_y" /></td>
+						<td><input type="text" data-bind="value: rotation_axis_z" /></td>
+					</tr>
+					<tr>
+						<th><label>visibility</label></th>
+						<td><input type="checkbox" data-bind="checked: is_visible" /></td>
+					</tr>
+				</table>
+				<span data-bind="visible: can_texture">
+					<span data-bind="template: {name: 'DialogLink', data: texture_dialog}"></span>
+					<div class="Dialog" data-bind="RevealOnVisible: texture_dialog.is_open" >
+						<span data-bind="foreach: $root.texture_list">
+							<h2 data-bind="text: key"></h2>
+							<div class="ThumbnailGallery" data-bind="foreach: value">
+								<img data-bind="click: function(){$root.SetTextureForGeometry($parents[1], $data)}, attr: {src: $data}" />
+							</div>
+						</span>
+						<div class="Buttons">
+							<button data-bind="click: function(){$data.ResetTexture();}">Reset texture</button>
+						</div>
+					</div>
+				</span>
+				<div data-bind="visible: can_delete" class="Buttons">
+					<button data-bind="visible: can_delete, click: function(){$root.DeleteModel($data)}">Delete</button>
+				</div>
+			</div>
+		</span>
+		<span data-bind="template: {name: 'DialogLink', data: add_a_model_dialog}"></span>
+		<div class="Dialog" data-bind="RevealOnVisible:add_a_model_dialog.is_open" >
+			<span data-bind="foreach: $root.model_catalog">
+				<h2 data-bind="text: heading"></h2>
+				<div data-bind="attr: {class: $data.class}, style: {backgroundImage: $data.bg ? 'url(' + $data.bg + ')' : ''}, foreach: value">
+					<img data-bind="click: function(){$root.AddAModelFromCatalog($data.name, $data.type, $data.key, $data.bg);}, attr: {src: src}" />
+				</div>
+			</span>
+		</div>
+	</script>
+
+	<script type="text/html" id="Preferences">
+		<h1>Preferences</h1>
+		<h2>Base Color</h2>
+			<span data-bind="foreach: $root.theme_bases">
+				<div class="ColorSquare" data-bind="style: {backgroundColor: $data.color}, click: function(){$root.EnableBase($data)}"></div>
+			</span>
+		<h2>Accent Color</h2>
+			<span data-bind="foreach: $root.theme_accents">
+				<div class="ColorSquare" data-bind="style: {backgroundColor: $data.color}, click: function(){$root.EnableAccent($data)}"></div>
+			</span>
+	</script>
+
+	<script type="text/html" id="Help">
+		<h1>Help</h1>
+		<h2>Camera</h2>
+		<p>
+			To rotate the camera, hold CTRL/CMD while dragging the scene. To zoom, hold ALT while dragging. To pan, hold
+			SHIFT while dragging.
+		</p>
+		<h2>Known Issues</h2>
+		<p>
+			PLAYHOUSE is currently in development, so it will be continously improving. Here is a list of known
+			issues:
+		</p>
+		<ul>
+			<li>Resizing the window does not resize the canvas</li>
+			<li>Move manipulation by dragging is currently a prototype and uses
+			    2D coordinates. This means that it will drag the model in relation
+			    to the magnitude of your drag.</li>
+			<li>Selecting a model does not scroll the display to the model description.</li>
+			<li>Some of the models have texturing problems. Especially the Final Fantasy XIII ones that have alpha maps.</li>
+		</ul>
+		<p>Look forward to improvements in the future!</p>
+	</script>
+
+	<script type="text/html" id="About">
+		<h1>About</h1>
+		<h2>What is this?</h2>
+		<p>Welcome to the PLAYHOUSE, a WebGL application made in Javascript, using the MooTools framework, and 
+		   KnockoutJS library. This started out as an exercise in learning WebGL, but slowly transformed into my
+			vision for an easy-to-use, easy-to-learn 3D creation application.
+		</p>
+		<h2>Who are you?</h2>
+		<p>
+			My name is Freeson Wang, and I am a software engineer. I guess you could say PLAYHOUSE is
+			a pet project of mine. If you are interested in more stuff, feel free to
+			visit my <a href="../../index.html">website</a>.
+		</p>
+		<p>I love feedback! Please send all feedback to <a href="mailto:freesonwang@gmail.com">freesonwang@gmail.com</a>.
+		<h2>Credits and Thanks</h2>
+		<ul>
+			<li>The <a href="http://mootools.net/">MooTools</a> framework</li>
+			<li>The <a href="http://knockoutjs.com/">Knockout</a> library</li>
+			<li>The <a href="http://learningwebgl.com/">Learning WebGL</a> tutorials and blog</li>
+			<li>The <a href="https://github.com/toji/gl-matrix">glMatrix</a> library</li>
+			<li><a href="http://stackoverflow.com/">StackOverflow</a></li>
+			<li>Thank you to my wonderful graphics professors from Carnegie Mellon, Nancy Pollard and Adrien Treuille, for teaching me everything I know.</li>
+		</ul>
+	</script>
+
+	<script type="text/html" id="ConductorColumnTile">
+		<div class="Tile" data-bind="click: function(){$parents[1].SwitchMode($data.name)}, css: {'Enabled': $parents[1].active_mode() == $data }">
+			<h3 data-bind="text: $data.name"></h3>
+			<p data-bind="text: $data.description"></p>
+		</div>
+	</script>
+
+	<div class="SidePanel" id="Hotbox" data-bind="SlideInHorizontalOnVisible: $root.is_conductor_open, click: function(){$root.is_conductor_open(!$root.is_conductor_open())}">
+		<div class="Page">
+			<h1>Conductor</h1>
+			<span data-bind="foreach: $root.mode_switchers">
+				<div class="Column">
+					<h2 data-bind="text: $data.name"></h2>
+					<span data-bind="foreach: $data.modes">
+						<div data-bind="template: {name: 'ConductorColumnTile', data: $data}"></div>
+					</span>
+				</div>
+			</span>
+		</div>
+	</div>	
+
+</body>
+</html>

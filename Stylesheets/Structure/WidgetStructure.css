@@ -1,0 +1,89 @@
+/*
+ ThumbnailGallery
+ */
+.ThumbnailGallery {
+	margin-right: -2.0em;
+}
+
+.ThumbnailGallery img {
+	display:inline-block;
+}
+
+.ThumbnailGallery img {
+	margin: 0.5em;
+}
+
+.ThumbnailGallery img {
+	height:50px;
+}
+
+.ThumbnailGalleryMedium img {
+	height:100px;
+}
+
+.ThumbnailGalleryLarge img {
+	height:200px;
+}
+
+.ThumbnailGallery {
+	overflow: hidden;
+}
+
+.ThumbnailGallery:hover {
+	overflow: auto;
+}
+
+.ThumbnailGallery {
+	white-space: nowrap;
+	background-repeat:no-repeat;
+}
+
+
+/*
+ TexturePreview
+ */
+img.TexturePreview {
+	min-width: 2.5em;
+	height:2.5em;
+	display:inline-block;
+	vertical-align: middle;
+	margin:0.0em 0.0em 0.0em 1.0em;
+}
+
+/*
+ ColorSquare
+ */
+.ColorSquare {
+	display: inline-block;
+	padding: 0.75em;
+	margin:  0.75em;
+}
+
+/*
+ Spinner 
+ */
+ .spinner {
+	position: absolute;
+	z-index: 999;
+}
+.spinner-msg {
+	text-align: center;
+}
+
+.spinner-img {
+	margin: 0 auto;
+}
+/**/
+.spinner {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+	background: rgba(0, 0, 0, 1.0);
+}
+
+.spinner-msg {
+	font-size: 2.0em;
+	font-weight: 100;
+	color: white;
+}
+

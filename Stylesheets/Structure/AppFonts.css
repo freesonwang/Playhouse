@@ -1,0 +1,99 @@
+/*
+ Font family
+ */
+body, button {
+	font-family: "Vegur", "Segoe UI", "Tahoma", "Geneva", "Helvetica", Arial, sans-serif;
+}
+
+/* 
+ Font Sizes and Structure
+ */
+#Header h1 {
+	font-size:1.0em;
+	line-height:1.5em;
+}
+
+.Page h1 {
+	font-size: 2.5em;
+}
+
+.TopLink,
+.Page h2,
+button
+{
+	font-size: 14px;
+}
+
+#Hotbox h2,
+#Hotbox .Button h3 {
+	font-size: 1.0em !important;
+}
+
+#Hotbox .Tile  h3 {
+	font-size: 1.75em;
+}
+
+/* 
+ Font Weights amnd Kerning
+ */
+body {
+	font-weight: 100;
+}
+
+#Header h1 {
+	font-weight: 100;
+}
+
+.Page h1, p, .TopLink, .Dialog th {
+	font-weight: 100;
+}
+
+.Page h1,
+#Hotbox .Tile  h3 {
+	letter-spacing: -2px;
+}
+
+.Page .TopLink,
+button, 
+#Hotbox .Button h3,
+#Hotbox h2 
+{
+	letter-spacing: -1px;
+}
+
+button,
+#Hotbox .Tile h3,
+#Hotbox .Button h3,
+#Hotbox h2 {
+	font-weight: 900;
+}
+
+
+/*
+ Text-transforms
+ */
+#Header h1 {
+	text-transform: lowercase;
+}
+
+.Page h1,
+#Home li{
+	text-transform: lowercase;
+}
+
+.Page h2,
+.Page .TopLink,
+button,
+#Hotbox .Button h3,
+#Hotbox h2 {
+	text-transform: uppercase !important;
+}
+
+#Hotbox .Tile h3, 
+.Dialog label {
+	text-transform: lowercase;
+}
+
+#Help ul, #About ul {
+	list-style-type: square;
+}

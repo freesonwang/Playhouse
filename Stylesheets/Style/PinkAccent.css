@@ -1,0 +1,22 @@
+/*
+ Decorations
+ */
+#Hotbox .Tile.Enabled,
+#Header, 
+.DialogLinkOpen {
+	background-color: hotpink !important;
+	color: black !important;
+}
+
+.SidePanel h1, .Dialog{
+	border-left: 8px solid hotpink;
+}
+
+.Dialog {
+	border-top: 1px solid hotpink;
+}
+
+p a,
+#About li a {
+	color: hotpink !important;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Playhouse</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link type="image/png" rel="icon"                 href="../../Resources/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Basic/BasicStructure.css" />
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Basic/BasicFonts.css" />
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Basic/BasicStyle.css" />
+	<script type="text/javascript" src="../../Frameworks/mootools/mootools-core-1.4.2-full-compat.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/mootools/mootools-more-1.4.0.1.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/knockout/knockout-2.0.0.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/glMatrix/gl-matrix-min.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/webgl-utils/webgl-utils.js" ></script>
+	<script type="text/javascript" src="../../Frameworks/assert/assert.js" ></script>
+	<script type="text/javascript" src="../../Library/Interactor/KeyboardInteractor.js" ></script>
+	<script type="text/javascript" src="Main.js" ></script>
+	<style type="text/css">
+	img {
+		width: 500px;
+	}
+	</style>
+</head>
+<body onload="Main();">
+	<h1>Lipsync</h1>
+	<img id="lips_display" data-bind="attr: {src: $root.current_img()}" />
+</body>
+</html>

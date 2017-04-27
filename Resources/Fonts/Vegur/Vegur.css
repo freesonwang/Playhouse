@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "Vegur";
+	src: url("VegurLight.otf")  format("opentype");
+	font-weight: 100;
+	font-style:normal;
+}
+
+@font-face {
+	font-family: "Vegur";
+	src: url("VegurRegular.otf")  format("opentype");
+	font-weight: 400;
+	font-style:normal;
+}
+
+@font-face {
+	font-family: "Vegur";
+	src: url("VegurBold.otf")  format("opentype");
+	font-weight: 900;
+	font-style:normal;
+}

@@ -1,0 +1,22 @@
+/*
+ Decorations
+ */
+#Hotbox .Tile.Enabled,
+#Header, 
+.DialogLinkOpen {
+	background-color: yellowgreen !important;
+	color: black !important;
+}
+
+.SidePanel h1, .Dialog {
+	border-left: 8px solid yellowgreen;
+}
+
+.Dialog {
+	border-top: 1px solid yellowgreen;
+}
+
+p a,
+#About li a {
+	color: yellowgreen !important;
+}

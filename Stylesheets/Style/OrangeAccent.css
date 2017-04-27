@@ -1,0 +1,22 @@
+/*
+ Decorations
+ */
+#Hotbox .Tile.Enabled,
+#Header, 
+.DialogLinkOpen {
+	background-color: darkorange !important;
+	color: black !important;
+}
+
+.SidePanel h1, .Dialog{
+	border-left: 8px solid darkorange;
+}
+
+.Dialog {
+	border-top: 1px solid darkorange;
+}
+
+p a,
+#About li a {
+	color: darkorange !important;
+}

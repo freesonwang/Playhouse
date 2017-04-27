@@ -1,0 +1,197 @@
+/*
+ Width and Height
+ */
+.SidePanel {
+	width: 320px;
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+}
+
+#Header {
+	width:100%;
+	height:1.5em;
+}
+
+.SidePanel ::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+button {
+	min-width: 110px;
+}
+
+.Dialog input[type="text"] {
+	width: 100%;
+}
+
+/* 
+ Display
+ */
+label.DialogLink {
+	display: block;
+}
+
+label.DialogLink input[type="checkbox"] {
+	display: none;
+}
+
+.Dialog {
+	background-repeat: no-repeat;
+	background-position: 0% 0%;
+	background-size: auto 150%;
+}
+
+.SidePanel {
+	overflow-x: hidden;
+}
+
+/*
+ Whitespace
+ */
+.Page, #Header {
+	padding-left: 2.0em;
+}
+.Page, #Header {
+	padding-right: 2.0em;
+}
+
+.Page {
+	padding-top: 4.0em;
+	padding-bottom: 4.0em;
+}
+
+#Header h1 {
+	margin:0;
+}
+
+.Page h1{
+	margin: 0.5em 0 0.5em -32px;
+	padding: 0.5em 0 0.5em 32px;
+}
+
+.Page li {
+	margin: 0.5em 0.0em 0.5em 1.0em;
+}
+
+.Dialog {
+	margin:  -0.5em -2.0em 1.0em -2.0em;
+	padding: 2.0em  2.0em 1.0em 2.0em;
+}
+
+.Dialog input[type="text"] {
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+}
+
+.Dialog th {
+	padding-right: 0.25em;
+}
+
+.DialogLinkOpen {
+	padding: 0.0em 1.0em;
+}
+
+label.DialogLink {
+	margin-top: 1.0em;
+	padding-left: 1.0em;
+}
+
+.Buttons {
+	margin-top: 1.0em;
+}
+
+#Hotbox .Button,
+button {
+	padding-top: 0.25em !important;
+	padding-bottom: 0.25em !important;
+}
+
+button {
+	padding-left: 2.5em;
+	padding-right: 2.5em;
+}
+
+/* 
+ Aligns
+ */
+
+.Dialog input[type="text"] {
+	text-align: center;
+}
+
+.Dialog th {
+	text-align: right;
+}
+
+.Buttons {
+	text-align: right;
+}
+/*
+ Hotbox 
+ */
+ /* Display */
+#Hotbox .Column {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0.0em 0.5em;
+}
+/* Margins and padding */
+#Hotbox .Button, 
+#Hotbox .Tile {
+	margin-bottom: 1.0em;
+}
+#Hotbox .Tile h3 {
+	margin: 0;
+}
+#Hotbox .Tile {
+	padding: 1.0em;
+}
+#Hotbox .Button {
+	text-align: center;
+}
+#Hotbox .Button p {
+	text-align: left;
+}
+/* Widths and heights */
+#Hotbox {
+	width: auto;
+	max-width: 800px;
+}
+#Hotbox .Tile {
+	width: 100px;
+	min-height: 100px;
+	max-height: 100px;
+	-webkit-transition: all 0.2s ease-in-out;
+
+}
+#Hotbox .Tile:hover {
+	max-height: 9999px;
+	-webkit-transition:  max-height 5s ease-in;
+}
+#Hotbox .Button {
+	min-height: 1.0em;
+	max-height: 1.0em;	
+}
+/* Overflows */
+#Hotbox {
+	overflow: hidden;
+}
+#Hotbox:hover{
+	overflow: auto;
+}
+#Hotbox, 
+#Hotbox .Button {
+	white-space:nowrap;
+}
+#Hotbox .Button:hover{
+	white-space: normal;
+}
+#Hotbox .Tiles, .Tile {
+	white-space:normal;
+	overflow: hidden;
+}
+#Hotbox .Tiles:hover {
+	overflow-y: auto;
+}

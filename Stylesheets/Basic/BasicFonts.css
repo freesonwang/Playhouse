@@ -1,0 +1,52 @@
+body {
+	font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+h1 {
+	font-size: 6.0em;
+	letter-spacing: -6px;
+}
+
+h2 {
+	font-size: 1.0em;
+	letter-spacing: -1px;
+}
+
+h3 {
+	font-size: 3.0em;
+	letter-spacing: -3px;
+}
+
+h4{
+	font-size: 1.25em;
+	letter-spacing: -1px;
+}
+
+p,
+li,
+.Button a {
+	font-size: 12px;
+}
+
+h2,
+h3,
+.Button a  {
+	font-weight: 900;
+}
+
+h2, 
+.Button a{
+	text-transform: uppercase;
+}
+
+h3 {
+	text-transform: lowercase;
+}
+
+a {
+	text-decoration:underline;
+}
+
+.Button a {
+	text-decoration: none;
+}

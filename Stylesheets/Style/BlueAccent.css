@@ -1,0 +1,22 @@
+/*
+ Decorations
+ */
+#Hotbox .Tile.Enabled,
+#Header,
+.DialogLinkOpen{
+	background-color: deepskyblue !important;
+	color: black !important;
+}
+
+.SidePanel h1, .Dialog{
+	border-left: 8px solid deepskyblue;
+}
+
+.Dialog {
+	border-top: 1px solid deepskyblue;
+}
+
+p a,
+#About li a {
+	color: deepskyblue !important;
+}

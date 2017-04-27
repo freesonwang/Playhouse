@@ -1,0 +1,34 @@
+body {
+	background: white;
+	color: black;
+}
+
+h3 {
+	border-bottom: 1px solid black;
+}
+
+a {
+	color: black;
+}
+
+li {
+	list-style-type: square
+}
+
+.Button a {
+	border: 1px solid black;
+}
+
+section {
+	border-left:10px solid black;
+}
+
+section#Playhouse {
+	border-left:10px solid red;
+}
+
+#Playhouse .Button a {
+	color:white;
+	background-color: red;
+	border: 1px solid red;
+}

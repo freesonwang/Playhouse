@@ -1,0 +1,55 @@
+#g Torso
+newmtl Material_0008f1
+	map_Ka ACRobeShirt.png
+
+#g Torso BackSword
+newmtl Material
+	map_Ka ACshortsword.png
+
+#g Torso Legs
+newmtl Material_4
+	map_Ka ACRobePants.png
+
+#g Torso Legs Sword Scb
+newmtl Material_00020b
+	map_Ka ACswordsaber.png
+
+#g Torso Legs Sword Sword1
+newmtl Material_1
+	map_Ka ACswordsaber.png
+
+#g Torso Legs Boots
+newmtl Material_6
+	map_Ka ACboots.png
+
+#g Torso Arms
+newmtl Material_00068b
+	map_Ka ACRobeShirt.png
+
+#g Torso Arms Gloves
+newmtl Material_00041e
+	map_Ka ACgloves.png
+
+#g Torso Arms Gloves Blade
+newmtl Material_0003e4
+	map_Ka ACgloves.png
+
+#g Torso Arms Gloves Fingers
+newmtl Material_3
+	map_Ka ACgloves.png
+
+#g Torso Hood
+newmtl Material_2
+	map_Ka AChood.png
+
+#g Torso Hood UpperBody
+newmtl Material_5
+	map_Ka AChood.png
+
+#g Torso Hood head
+newmtl Mat_1
+	map_Ka rai.png
+
+#g Torso Hood head eyes
+newmtl Mat
+	map_Ka mata.png

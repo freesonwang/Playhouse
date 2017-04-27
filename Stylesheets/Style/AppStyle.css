@@ -1,0 +1,50 @@
+/*
+ Style
+ */
+body {
+	background-color: black;
+}
+
+a {
+	color: black;
+}
+
+.Dialog input {
+	border: 0;
+}
+
+.Dialog div.Dialog,
+#Home h1 {
+	border-left: 0 !important;
+}
+
+.ColorSquare {
+	border: 1px solid silver;
+}
+
+.Dialog sub {
+	opacity: 0.7;
+	-moz-opacity: 0.7;
+	filter:alpha(opacity=7);
+}
+
+#Hotbox .Button,
+button {
+	opacity: 0.3;
+}
+
+#Hotbox .Button:hover,
+button:hover,
+a:hover {
+	opacity: 1.0;
+}
+
+#Hotbox .Button:hover h3,
+button:hover,
+a:hover {
+	text-decoration: underline;
+}
+
+#Hotbox .Tile {
+	border: 2px solid transparent;
+}
